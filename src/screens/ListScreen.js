@@ -3,7 +3,7 @@ import {Text, View, StyleSheet, FlatList} from 'react-native';
 
 const ListScreen = () => {
   const friends = [
-    {name: 'Friend #1'},
+    {name: 'Friend #1'},//one of the way to add a 'key' is this: {name: 'Friend #1', key: '1'}
     {name: 'Friend #2'},
     {name: 'Friend #3'},
     {name: 'Friend #4'},
@@ -16,6 +16,7 @@ const ListScreen = () => {
 
   return (
     <FlatList 
+      keyExtractor={friend => friend.name}// another way to add a 'key' is using the properties 'keyExtractor'
       data={friends} 
       renderItem={({item}) => {
         //element === {item: {name: 'Friend #1'}, index: 0}

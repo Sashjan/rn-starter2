@@ -16,17 +16,23 @@ const ListScreen = () => {
 
   return (
     <FlatList 
+      horizontal
+      showsHorizontalScrollIndicator={false}
       keyExtractor={friend => friend.name}// another way to add a 'key' is using the properties 'keyExtractor'
       data={friends} 
       renderItem={({item}) => {
         //element === {item: {name: 'Friend #1'}, index: 0}
         //item === {name: 'Friend #1'}
-        return <Text>{item.name}</Text>
+        return <Text style={styles.textStyle}>{item.name}</Text>
       }}
     />
   );
 };
 
-const style = StyleSheet.create({});
+const styles = StyleSheet.create({
+  textStyle: {
+    marginVertical: 50
+  }
+});
 
 export default ListScreen;
